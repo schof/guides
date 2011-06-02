@@ -59,7 +59,7 @@ require 'guides/levenshtein'
 
 module Guides
   class Generator
-    attr_reader :guides_dir, :source_dir, :output_dir, :edge, :warnings, :all
+    attr_reader :guides_dir, :source_dir, :output_dir, :edge, :ga, :warnings, :all
 
     EXTENSIONS = %w(textile md html.erb)
     GUIDES_RE = /\.(?:#{EXTENSIONS.map{|e| Regexp.escape(e)}.join('|')})$/
@@ -79,6 +79,7 @@ module Guides
       @warnings = options[:warnings]
       @all      = options[:all]
       @production = options[:production]
+      @ga       = options[:ga]
 
       @meta = Guides.meta
     end
@@ -140,7 +141,7 @@ module Guides
 
       puts "Generating #{output_file}"
       File.open(File.join(output_dir, output_file), 'w') do |f|
-        view = ActionView::Base.new(source_dir, :edge => edge, :production => @production)
+        view = ActionView::Base.new(source_dir, :edge => edge, :ga => ga, :production => @production)
         view.extend(Helpers)
 
         if guide =~ /\.html\.erb$/

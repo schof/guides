@@ -23,6 +23,8 @@ module Guides
     method_option "clean", :type => :boolean
     method_option "edge", :type => :boolean, :default => false
     method_option "production", :type => :boolean, :default => true, :banner => "use production mode", :aliases => "-p"
+    method_option "ga", :type => :string, :banner => "google analytics id (ex. \"UA-12345-6\")"
+
     def build
       if options[:clean]
         FileUtils.rm_rf(File.join(Guides.root, options[:production] ? 'output' : 'staging'))

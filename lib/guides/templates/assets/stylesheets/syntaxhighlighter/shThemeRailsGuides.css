@@ -8,16 +8,16 @@
   overflow-x: auto !important;
 }
 .syntaxhighlighter .line.alt1 {
-  background-color: #eee !important;
+  background-color: #F6F7F9 !important;
 }
 .syntaxhighlighter .line.alt2 {
-  background-color: #eee !important;
+  background-color: #F6F7F9 !important;
 }
 .syntaxhighlighter .line.highlighted.alt1, .syntaxhighlighter .line.highlighted.alt2 {
   background-color: #c3defe !important;
 }
 .syntaxhighlighter .line.highlighted.number {
-  color: #eee !important;
+  color: #F6F7F9 !important;
 }
 .syntaxhighlighter table caption {
   color: #222 !important;
@@ -30,7 +30,7 @@
 }
 .syntaxhighlighter .gutter .line.highlighted {
   background-color: #d4d0c8 !important;
-  color: #eee !important;
+  color: #F6F7F9 !important;
 }
 .syntaxhighlighter.printing .line .content {
   border: none !important;

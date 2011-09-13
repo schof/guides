@@ -59,7 +59,7 @@ module Guides
       @output << %{<div class="code_container code">\n}
       @output << %{<div class="tab"></div>\n}
       @output << %{<div class="bg">\n}
-      @output << %{<div class="filename">#{filename}</div>\n} if filename
+      @output << %{<div class="path">#{filename}</div>\n} if filename
       @output << %{<pre class="brush: #{replace}; gutter: false; toolbar: false">\n} <<
                  CGI.escapeHTML(match.pre_match) << %{</pre></div></div>}
     end
@@ -74,7 +74,7 @@ module Guides
       match = scan_until /(\r?\n){2,}/ # We need at least 2 line breaks but we want to match as many as exist
       note = match.pre_match.gsub(/\n\s*/, " ")
       note = RedCloth.new(note, [:lite_mode]).to_html
-      @output << %{<div class="#{css_class}"><p>#{note}</p></div>\n}
+      @output << %{<div class="#{css_class}"><div class="tab"></div><div class="bg"><p>#{note}</p></div></div>\n}
     end
 
     def consume_construction

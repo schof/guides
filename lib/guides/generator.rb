@@ -216,18 +216,17 @@ module Guides
           end
         end
 
-        children_ul = children.empty? ? "" : view.content_tag(:ul, children.join(" ").html_safe)
+        # children_ul = children.empty? ? "" : view.content_tag(:ul, children.join(" ").html_safe)
 
-        index << view.content_tag(:li, link.html_safe + children_ul.html_safe)
+        index << view.content_tag(:li, link.html_safe, :class => 'outline')
+        children.each.map { |child| index << child.html_safe }
       end
 
       index_section = <<-INDEX
-      <div id="subCol">
-        <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Chapters</h3>
-        <ol class="chapters">
-          #{index}
-        </ol>
-      </div>
+      <h3>Chapters</h3>
+      <ul class="items guides">
+        #{index}
+      </ul>
       INDEX
 
       view.content_for(:index_items) { index.html_safe }

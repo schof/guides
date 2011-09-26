@@ -57,9 +57,12 @@ module Guides
     def generate_brushes(tag, replace, filename)
       match = scan_until %r{</#{tag}>}
       @output << %{<div class="code_container code">\n}
-      @output << %{<div class="tab"></div>\n}
-      @output << %{<div class="bg">\n}
-      @output << %{<div class="path">#{filename}</div>\n} if filename
+      @output << %{<div class="tab">}
+      if filename
+        @output << %{<span class="path">#{filename}</span>\n</div><div class="bg-file">\n}
+      else
+        @output << %{</div><div class="bg">\n}
+      end
       @output << %{<pre class="brush: #{replace}; gutter: false; toolbar: false">\n} <<
                  CGI.escapeHTML(match.pre_match) << %{</pre></div></div>}
     end

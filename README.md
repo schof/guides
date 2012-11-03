@@ -7,7 +7,7 @@ This gem provides a clean a simple way to generate and maintain a collection _gu
 
 * http://guides.sproutcore.com/
 * http://guides.dradisframework.org/
-
+* http://guides.spreecommerce.com/
 
 Installation
 ------------
